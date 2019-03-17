@@ -39,9 +39,8 @@ const appRoutes=[
     MatButtonModule,
     StoreModule.forRoot({}),
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
-  exports: [RouterModule],
   providers: [
     TestService, ProductService,
     {
