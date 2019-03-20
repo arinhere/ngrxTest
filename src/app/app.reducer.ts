@@ -1,15 +1,15 @@
-interface State{ // Type Definition 
+interface prodModel{
     title: string,
     description: string,
     price: string,
     _id: string
 }
+export interface State{ // Type Definition 
+    listProducts: prodModel[]
+}
 
 const intialState: State={//Create an initial state
-    title: "Default Product",
-    description: "Default Product Description",
-    price: "$20",
-    _id: "212125646546dfsdfds"
+    listProducts:[]
 }
 
 export function AppReducer(state = intialState,action){//Reducer is just a function which accept, state and the action for it

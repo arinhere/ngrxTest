@@ -34,7 +34,7 @@ import { AppReducer } from './app.reducer';
     ProductsModule,
     BrowserAnimationsModule,
     //NGRX Module Import
-    StoreModule.forRoot({AppReducer}),
+    StoreModule.forRoot({products: AppReducer}),
     //NGRX Module Import End
     RouterModule,
     AppRoutingModule,
