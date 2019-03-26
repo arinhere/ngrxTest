@@ -14,10 +14,11 @@ export class AuthenticationComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private _testService:TestService, private fb: FormBuilder){
+    console.log("Constructor called");
   }
 
   ngOnInit(){
-    console.log("Add changes to check gitlab");
+    console.log("Add changes to check gitlab.");
     this.signUpForm=this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
