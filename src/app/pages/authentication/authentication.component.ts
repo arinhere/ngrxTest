@@ -17,16 +17,17 @@ export class AuthenticationComponent implements OnInit {
   }
 
   ngOnInit(){
+    console.log("Add changes to check gitlab");
     this.signUpForm=this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required,Validators.email]],
-      password: ['', [Validators.required,Validators.minLength(8)]]
+      password: ['', [Validators.required,Validators.minLength(6)]]
     })
 
     this.loginForm=this.fb.group({
       email: ['', [Validators.required,Validators.email]],
-      password: ['', [Validators.required,Validators.minLength(8)]]
+      password: ['', [Validators.required,Validators.minLength(6)]]
     })
   }
 
