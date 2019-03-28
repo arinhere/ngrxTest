@@ -7,14 +7,12 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AddUserComponent } from './add/add.component';
 import { EditUserComponent } from './edit/edit.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ListUsersComponent } from './listUsers/list-users.component';
 
 @NgModule({
   declarations: [
     AddUserComponent,
     ListUsersComponent,
-    UserDetailComponent,
     EditUserComponent,
   ],
   imports: [
@@ -22,6 +20,7 @@ import { ListUsersComponent } from './listUsers/list-users.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
+    //Material module, though will be placed in a seperate file, for multi module project
     MatInputModule,
     MatButtonModule,
     MatSelectModule,

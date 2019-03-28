@@ -19,6 +19,7 @@ export class ListUsersComponent implements OnInit {
     this.populateUsers();
   }
 
+  //Function to populate all users
   populateUsers(){
     this._userService.getData()
       .subscribe(result=>{
@@ -28,18 +29,18 @@ export class ListUsersComponent implements OnInit {
 
   userDetail: any;
   navigate(action,id){
-    if(action=='view'){
+    if(action=='view'){//getting data for each user based on selection
       this._userService.getDataByID(id)
         .subscribe(result=>{
           this.userDetail=result;
         })
     }
 
-    if(action=='edit'){
+    if(action=='edit'){//Redirecting to the edit page, which is Add component
       this._router.navigate(['/user/' + id + '/edit']);
     }
 
-    if(action=='delete'){
+    if(action=='delete'){//Deleting the user
       if(confirm('Are you sure to remove this user?')){
         this._userService.deleteData(id)
           .subscribe(result=>{
