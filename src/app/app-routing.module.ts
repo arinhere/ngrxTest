@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthenticationComponent } from './pages/authentication/authentication.component';
-import { AddProductComponent } from './products/add/add.component';
-import { ListProductsComponent } from './products/list-products/list-products.component';
+import { AddUserComponent } from './users/add/add.component';
+import { EditUserComponent } from './users/edit/edit.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { ListUsersComponent } from './users/listUsers/list-users.component';
 
 const routes: Routes = [
-  {path: '', component: AuthenticationComponent},
-  {path: 'products/add', component: AddProductComponent},
-  {path: 'products/list', component: ListProductsComponent},
-  {path: '**', component: AuthenticationComponent},
+  {path: 'user/add', component: AddUserComponent},
+  {path: 'user/list', component: ListUsersComponent},
+  {path: 'user/:id/edit', component: AddUserComponent},
+  {path: '', component: ListUsersComponent},
+  {path: '**', component: ListUsersComponent},
 ];
 
 @NgModule({

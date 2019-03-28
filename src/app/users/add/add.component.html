@@ -1,0 +1,53 @@
+<div style="padding: 10px 10px 10px 10px">
+  
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">
+                <span *ngIf="!userid">Add User</span>
+                <span *ngIf="userid">Edit User</span>
+            </h2>
+        </div>
+        <div class="panel-body">
+            
+            <form [formGroup]="addUserForm" (ngSubmit)="onSubmit(addUserForm)" novalidate>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" formControlName="name" placeholder="Name" class="form-control" [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors }" />
+                    <div *ngIf="f.name.touched && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.touched && f.name.errors.required">Name is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" formControlName="email" class="form-control" placeholder="Email" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+                    <div *ngIf="f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.touched && f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.touched && f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Number</label>
+                    <input type="text" formControlName="number" placeholder="Number" class="form-control" [ngClass]="{ 'is-invalid': f.number.touched && f.number.errors }" />
+                    <div *ngIf="f.number.touched && f.number.errors" class="invalid-feedback">
+                        <div *ngIf="f.number.touched && f.number.errors.required">Number is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field>
+                        <mat-select placeholder="Select Tags" formControlName="tags" multiple>
+                            <mat-option *ngFor="let tag of tags" [value]="tag.value" [title]="tag.name">{{tag.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" [disabled]="addUserForm.invalid" *ngIf="!userid">Add</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="addUserForm.invalid" *ngIf="userid">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  
+</div>

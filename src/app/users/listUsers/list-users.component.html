@@ -1,0 +1,41 @@
+  <h2>All Users</h2>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Email</th>
+            <th>Tags</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of users" style="padding-top: 10px;">
+            <td>{{item.name}}</td>
+            <td>{{item.number}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.tags}}</td>
+            <td>
+              <a href="javascript:void(0)" (click)="navigate('view',item.id)">View</a> | 
+              <a href="javascript:void(0)" (click)="navigate('edit',item.id)">Edit</a> |
+              <a href="javascript:void(0)" (click)="navigate('delete',item.id)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-sm-4">
+      <div *ngIf="userDetail">
+        <ul class="list-group" style="padding-top: 10px;">
+          <li class="list-group-item" style="padding-top: 5px;">Name: {{userDetail[0].name}}</li>
+          <li class="list-group-item" style="padding-top: 5px;">Email: {{userDetail[0].email}}</li>
+          <li class="list-group-item" style="padding-top: 5px;">Number: {{userDetail[0].number}}</li>
+          <li class="list-group-item" style="padding-top: 5px;">Tags: {{userDetail[0].tags}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>

@@ -7,37 +7,29 @@ import { TestService } from './core/services/test.services';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ServiceInterceptor } from './core/interceptor/service.interceptor';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatInputModule, MatButtonModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AuthenticationComponent } from './pages/authentication/authentication.component';
-import { ProductService } from './core/services/products.service';
 import { RouterModule } from '@angular/router';
-import { ProductsModule } from './products/products.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppReducer } from './app.reducer';
+import { UserModule } from './users/users.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AuthenticationComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule,
-    ProductsModule,
+    UserModule,
     BrowserAnimationsModule,
-    //NGRX Module Import
-    StoreModule.forRoot({products: AppReducer}),
-    //NGRX Module Import End
+    UserModule,
     RouterModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [
     TestService,

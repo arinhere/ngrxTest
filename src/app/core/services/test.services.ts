@@ -5,24 +5,30 @@ import { HttpClient } from '@angular/common/http';
 export class TestService{
 
     constructor(private _http: HttpClient){}
+    apiEP="http://localhost:3000";
 
     getData(){
-        var url="http://localhost:3000/api/user/getData";
+        var url=this.apiEP + "/get";
         return this._http.get(url);
     } 
+
+    getDataByID(id){
+        var url=this.apiEP + "/get/"+id;
+        return this._http.get(url);
+    }
     
-    signUp(body){
-        var url="http://localhost:3000/api/user/signup";        
+    postData(body){
+        var url=this.apiEP + "/post";        
         return this._http.post(url, body);
     }
 
-    login(body){
-        var url="http://localhost:3000/api/user/login";        
-        return this._http.post(url, body);
+    updateData(body){
+        var url=this.apiEP + "/put";        
+        return this._http.put(url, body);
     }
 
-    deleteData(name){
-        var url="http://localhost:3000/api/user/deleteData/Arin";
+    deleteData(id){
+        var url=this.apiEP + "/delete/"+id;
         return this._http.delete(url);
     }
 }
